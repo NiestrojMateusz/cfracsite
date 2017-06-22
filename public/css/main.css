@@ -1,0 +1,67 @@
+* {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body {
+    font: normal 1.1em/1.5 sans-serif;
+    color: #222;
+    background-color: #fff;
+    font-family: "Lato";
+}
+
+h2 {
+    text-transform: uppercase;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/*================Links==================*/
+a,
+a:visited {
+  color: #B12C2D;
+  text-decoration: none;
+}
+
+a:hover,
+a:visited:hover,
+a:focus,
+a:visited:focus {
+	color: #B12C2D;
+	background-color: #222222 ;
+}
+
+/* ============== Header================*/
+
+header,
+nav     {
+    text-align: center;
+}
+header img {
+   max-width: 200px;
+    
+}
+
+/* =================Navbar==============*/
+
+nav {
+    background-color: #B12C2D;
+    font-weight: bold;
+    }
+nav ul {padding: 5px 0 5px 0;}
+
+nav li {
+    list-style-type: none;
+    display: inline-block;    
+    text-decoration: none;    
+    font-size: 1.4em;
+}
+
+nav li a {
+    color: white;
+    padding: 0.35em;
+}
+
+.current-menu-item {
+	color: #fff;
+	background-color: #222222 ;
+}
