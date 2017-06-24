@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/grid.css">
+    <link rel="stylesheet" type="text/css" href="css/ionicons.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/queries.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,300italic,100' rel='stylesheet' type='text/css'>
+    <link rel="apple-touch-icon" sizes="57x57" href="\icons\favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="\icons\favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="\icons\favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="\icons\favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="\icons\favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="\icons\favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="\icons\favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="\icons\favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="\icons\favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="\icons\favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="\icons\favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="\icons\favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="\icons\favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="\icons\favicons/manifest.json">
+    <link rel="mask-icon" href="\icons\favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="\icons\favicons/favicon.ico">
+    <meta name="msapplication-TileImage" content="\icons\favicons/mstile-144x144.png">
+    <meta name="msapplication-config" content="\icons\favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <title>Cross&Fit Racibórz</title>
+  </head>
+  <body>
+    <%= yield_content :header %>
+
+    <%= yield %>
+
+    <footer>
+      <div class="row">
+        <div class="col span-1-of-2">
+          <div class="footer-images">
+            <a href="http://crossfit.com/" target="_blank"><img src="images/logo-crossfit.jpg"></a>
+            <a href="http://journal.crossfit.com" target="_blank"><img src="images/journal.png"></a>
+          </div>
+
+        </div>
+        <div class="col span-1-of-2">
+          <ul class="social-icons">
+            <li>Znajdziejsz nas też tutaj:</li>
+            <li>
+              <a href="https://www.facebook.com/CrossfitRaciborz/" target="_blank">
+                <i class="ion-social-facebook"></i>
+              </a>
+            </li>
+            <!--<li><a href="#"><i class="ion-social-twitter"></i></a></li>
+                            <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
+                            <li><a href="#"><i class="ion-social-instagram"></i></a></li>
+Dodatkowe icony do innych mediów społecznościwych-->
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <p>Copyright &copy; 2015 by Mateusz Niestrój. All rights reserved</p>
+      </div>
+    </footer>
+
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/selectivizr/1.0.3b/selectivizr.min.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/script.js"></script>
+
+</html>
