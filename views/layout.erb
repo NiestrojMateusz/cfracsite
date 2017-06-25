@@ -32,7 +32,9 @@
     <title>Cross&Fit Racibórz</title>
   </head>
   <body>
-    <%= yield_content :header %>
+    <% if request.path_info != "/" %>
+      <%= yield_content :nav_bar %>
+    <% end %>
 
     <%= yield %>
 

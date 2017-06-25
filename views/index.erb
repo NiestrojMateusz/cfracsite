@@ -1,40 +1,37 @@
-<% content_for :header do %>
-  <header>
-    <nav>
-      <div class="row">
-        <img src="images/logo.png" id="logo" class="logo" alt="CF Racibórz Logo">
-        <ul class="main-nav js--main-nav">
-          <li>
-            <a href="#crossfit">Crossfit</a>
-          </li>
-          <li>
-            <a href="#about">O nas</a>
-          </li>
-          <li>
-            <a href="#gallery">Galeria</a>
-          </li>
-          <li>
-            <a href="#map">Gdzie?</a>
-          </li>
-          <li class="sign_in">
-            <a href="/sign_in">Zaloguj</a>
-          </li>
-        </ul>
-        <a class="mobile-nav-icon js--nav-icon">
-          <i class="ion-navicon-round"></i>
-        </a>
-      </div>
-    </nav>
-
-    <div class="hero-text-box">
-      <h1>Cross&Fit Racibórz</h1>
-      <a class="btn btn-full js--scroll-to-schedule" href="#">Dołącz do nas</a>
-      <a class="btn btn-empty js--scroll-to-start" href="#">Pokaż więcej</a>
+<header>
+  <nav>
+    <div class="row">
+      <img src="images/logo.png" id="logo" class="logo" alt="CF Racibórz Logo">
+      <ul class="main-nav js--main-nav">
+        <li>
+          <a href="#crossfit">Crossfit</a>
+        </li>
+        <li>
+          <a href="#about">O nas</a>
+        </li>
+        <li>
+          <a href="#gallery">Galeria</a>
+        </li>
+        <li>
+          <a href="#map">Gdzie?</a>
+        </li>
+        <li class="sign_in">
+          <a href="/sign_in">Zaloguj</a>
+        </li>
+      </ul>
+      <a class="mobile-nav-icon js--nav-icon">
+        <i class="ion-navicon-round"></i>
+      </a>
     </div>
-  </header>
-<% end %>
+  </nav>
 
-<%= yield_content :nav_bar %>
+  <div class="hero-text-box">
+    <h1>Cross&Fit Racibórz</h1>
+    <a class="btn btn-full js--scroll-to-schedule" href="#">Dołącz do nas</a>
+    <a class="btn btn-empty js--scroll-to-start" href="#">Pokaż więcej</a>
+  </div>
+</header>
+
 <section class="section-crossfit js--section-crossfit" id="crossfit">
   <div class="row">
     <h2>Crossfit - czym to właściwie jest?</h2>
