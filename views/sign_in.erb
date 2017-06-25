@@ -16,7 +16,7 @@
           <a href="#map">Gdzie?</a>
         </li>
         <li class="sign_in">
-          <a href="/sign_in">Zaloguj</a>
+          <a href="/users/signin">Zaloguj</a>
         </li>
       </ul>
       <a class="mobile-nav-icon js--nav-icon">
@@ -28,11 +28,12 @@
 
 <div id="sign_in">
   <h2>Zaloguj się</h2>
-  <form action="#" method="post">
-    <label for="sign_in_email">Email</label>
-    <input type="text" name="sign_in_email" value="">
-    <label for="sign_in_password">Password</label>
-    <input type="password" name="sign_in_password" value="">
+  <form action="/users/signin" method="post">
+    <label for="username">Login</label>
+    <input type="text" name="username" value="">
+    <label for="password">Hasło</label>
+    <input type="password" name="password" value="">
+    <button type="submit">Zaloguj</button>
   </form>
 </div>
 

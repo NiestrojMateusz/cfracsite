@@ -370,12 +370,11 @@ header {
 /* ------------------------------------------------------- */
 /* FOOTER*/
 /* ------------------------------------------------------- */
-
 footer {
-  position:fixed;
+  /*position:fixed;
   left:0px;
   bottom:0px;
-  width:100%;
+  width:100%;*/
   background-color: #333;
   padding-top: 10px;
   padding-bottom: 20px;
