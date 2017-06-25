@@ -42,3 +42,15 @@ end
 get "/users/home" do
   erb :user_homepage, layout: :layout
 end
+
+post "/users/signup" do
+  username = params[:email]
+  password = params[:password]
+
+  credentials = {email: username, password: password}
+
+  File.open("users.yml", "w") do |open_file|
+    open_file.write(YAML.dump(credentials))
+  end
+  # binding.pry_remote
+end
