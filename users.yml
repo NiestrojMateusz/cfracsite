@@ -1,3 +1,9 @@
 ---
-:email: moki54
-:password: moki21
+moki54:
+  :password: moki21
+julka:
+  :password: pass
+matis:
+  :password: '1234'
+user:
+  :password: pass
