@@ -1,0 +1,8 @@
+<div class="wod">
+  <h2> Workout of the day</h2>
+  <% show_wod(@year, @month, @day).each_line do |line| %>
+  <p>
+    <%= line %>
+  </p>
+  <% end %>
+</div>

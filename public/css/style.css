@@ -19,7 +19,8 @@ body {
 }
 
 .clearfix {zoom:1}
-.clearfix:after {
+.clearfix:after,
+.clearfix:before {
     content: ' ';
     clear: both;
     display: block;
@@ -463,4 +464,27 @@ footer p {
   display: inline-block;
   width: 45%;
   margin: 100px 0px 0 93px;
+}
+
+/* ------------------------------------------------------- */
+/* User Homepage */
+/* ------------------------------------------------------- */
+.wrapper {
+  overflow: hidden;
+}
+.personal_data {
+  float: left;
+  width: 30%;
+}
+
+.wod {
+  float: left;
+}
+
+.archive_wod {
+  margin-top: 75px;
+}
+
+.sign_out {
+  overflow: hidden;
 }

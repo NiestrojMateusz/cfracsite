@@ -1,4 +1,24 @@
-<br>
-<form action="/users/signout" method="post">
-  <button type="submit">Wyloguj</button>
-</form>
+  <div class="wod">
+    <h2>Today Workout of the day</h2>
+    <% today_wod.each_line do |line| %>
+    <p>
+      <%= line %>
+    </p>
+    <% end %>
+<!--
+    <form action="">
+      <label for=""><input type="text"></label>
+    <button type="submit">Edit</button>
+    </form> -->
+    <form class="archive_wod" action="/wods" method="post">
+      <label for="archive_wod">Find past WOD
+        <input type="date" name="archive_wod" value="">
+        <button type="submit">Find WOD</button>
+      </label>
+    </form>
+  </div>
+  <div class="sign_out clearfix">
+    <form action="/users/signout" method="post">
+      <button type="submit">Wyloguj</button>
+    </form>
+  </div>

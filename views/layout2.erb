@@ -36,9 +36,17 @@
     <% if session[:message] %>
       <p class="message"><%= session.delete(:message) %></p>
     <% end %>
+  <div class="wrapper">
+    <div class="personal_data">
+      <h3>Personal data</h3>
+      <p>Name:</p>
+      <p>Weight:</p>
+      <p>Height:</p>
+      <p><a href="#">Personal records</a></p>
+    </div>
 
     <%= yield %>
-
+  </div>
 
 
 
