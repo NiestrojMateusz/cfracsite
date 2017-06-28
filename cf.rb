@@ -37,6 +37,15 @@ helpers do
     show_wod(today.year, today.month, today.day)
   end
 
+  def show_max_result(exercise)
+    data = load_users
+    if exercise == nil
+      "Not register"
+    else
+      data[session[:username]][exercise]
+    end
+  end
+
 end
 
 def file_path(filename)
@@ -48,11 +57,24 @@ def load_users
   YAML.load_file(path)
 end
 
+def load_file(filename)
+  path = file_path(filename)
+  YAML.load_file(path)
+end
+
 def username_exist?(username)
   data = load_users
   data.has_key?(username) ? true : false
 end
 
+def admin?
+  data = load_users
+  if data[session[:username]][:admin] != nil
+    true
+  else
+    false
+  end
+end
 
 
 get "/" do
@@ -78,7 +100,7 @@ post "/users/signin" do
 
     redirect "/users/home"
     else
-    session[:message] = "Invalid credentials"
+    session[:error] = "Invalid credentials"
     status 422
     erb :sign_in
   end
@@ -100,28 +122,36 @@ post "/users/signup" do
   confirm_password = params[:confirm]
   data = load_users
   if username_exist?(username)
-    session[:message] = "Konto o podanym loginie istnieje"
+    session[:error] = "Konto o podanym loginie już istnieje"
     redirect "/users/signin"
   elsif password != confirm_password
-    session[:message] = "Podane hasła nie pasują"
+    session[:error] = "Podane hasła nie pasują"
     erb :sign_in, layou: :layout
     redirect "/users/signin"
   else
     data[username] = {password: password}
     output = YAML.dump(data)
     File.write(file_path("users.yml"), output)
-    session[:message] = "Twoje konto zostało utworzone"
+    session[:success] = "Twoje konto zostało utworzone"
     redirect "/users/home"
   end
  end
 
- get "/wods/:id" do
-   date = params[:id].split("-")
-   @year = date[0].to_i
-   @month= date[1].to_i
-   @day = date[2].to_i
+def parse_wod_params(date)
+  @date = date.split("-")
+  year = @date[0].to_i
+  month= @date[1].to_i
+  day = @date[2].to_i
+  [year, month, day]
+end
 
-  erb :wods_archive, layout: :layout2
+ get "/wods/:id" do
+   @date = parse_wod_params(params[:id])
+  #  date = params[:id].split("-")
+  #  @year = date[0].to_i
+  #  @month= date[1].to_i
+  #  @day = date[2].to_i
+  erb :wods, layout: :layout2
  end
 
 get "/wods" do
@@ -129,9 +159,47 @@ get "/wods" do
 end
 
  post "/wods" do
-   params[:archive_wod]
-     @wod_id = params[:archive_wod]
+  @wod_id = params[:wod]
 
-     redirect "/wods/#{@wod_id}"
-
+  redirect "/wods/#{@wod_id}"
  end
+
+get "/users/personal_records" do
+  erb :personal_records, layout: :layout2
+end
+
+get "/users/personal_records/edit" do
+  erb :edit_record, layout: :layout2
+end
+
+post  "/users/personal_records" do
+  @exercise = params[:exercise]
+  @max_result = params[:max_result]
+  @username = session[:username]
+  data = load_users
+  data[@username][@exercise] = @max_result
+  output = YAML.dump(data)
+  File.write(file_path("users.yml"), output)
+
+  redirect "/users/personal_records"
+end
+
+get "/wods/edit/:id" do
+  data = load_file("workouts.yml")
+  @wod_id = params[:id]
+  @wod_params = parse_wod_params(@wod_id)
+  @content = data[@wod_params[0]][@wod_params[1]][@wod_params[2]]
+
+  erb :edit_wod, layout: :layout2
+end
+
+post "/wods/edit/:id" do
+  @wod_id = params[:id]
+  @wod_params = parse_wod_params(@wod_id)
+  data = load_file("workouts.yml")
+  data[@wod_params[0]][@wod_params[1]][@wod_params[2]] = params[:content]
+  output = YAML.dump(data)
+  File.write(file_path("workouts.yml"), output)
+
+  redirect "/wods/#{@wod_id}"
+end

@@ -11,12 +11,19 @@
     <button type="submit">Edit</button>
     </form> -->
     <form class="archive_wod" action="/wods" method="post">
-      <label for="archive_wod">Find past WOD
-        <input type="date" name="archive_wod" value="">
+      <label for="wod">Find past WOD
+        <input type="date" name="wod" value="">
         <button type="submit">Find WOD</button>
+        <% if admin? %>
+           <form  action="/wods/add" method="post">
+             <button type="submit" name="button">Add WOD</button>
+           </form>
+        <% end %>
       </label>
     </form>
   </div>
+
+
   <div class="sign_out clearfix">
     <form action="/users/signout" method="post">
       <button type="submit">Wyloguj</button>

@@ -1,0 +1,13 @@
+<div class="wod">
+  <h2> Workout of the day</h2>
+  <% show_wod(@date[0],@date[1],@date[2]).each_line do |line| %>
+  <p>
+    <%= line %>
+  </p>
+  <% end %>
+</div>
+<% if admin? %>
+   <form  action="/wods/edit/<%= params[:id] %>" method="get">
+     <button type="submit" name="button">Edit WOD</button>
+   </form>
+<% end %>

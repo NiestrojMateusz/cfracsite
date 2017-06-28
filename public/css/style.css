@@ -141,7 +141,33 @@ h2:after {
     height: 100px;
     width: auto;
 }
+/*----------Flash Messages-----------*/
+.message {
+  padding: 10px;
+  background: #FFFF99;
+}
+.flash {
+  max-width: 960px;
+  padding: 10px 20px;
+  margin: 20px auto 1.5em auto;
+  color: #3399cc;
+  background: #CBE5F2;
+}
 
+.flash p {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.flash.error {
+  color: #ff6633;
+  background: #FFCFBF;
+}
+
+.flash.success {
+  color: #33cc99;
+  background: #CBF2E5;
+}
 /* ------------------------------------------------------- */
 /* HEADER*/
 /* ------------------------------------------------------- */
@@ -467,18 +493,31 @@ footer p {
 }
 
 /* ------------------------------------------------------- */
-/* User Homepage */
+/* Flexbox */
 /* ------------------------------------------------------- */
+
 .wrapper {
-  overflow: hidden;
-}
-.personal_data {
-  float: left;
-  width: 30%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  justify-content: space-around;
 }
 
+.main {
+  width :90%;
+  margin: 0 auto;
+  text-align: center;
+}
+.personal_data {
+  width: 10%;
+}
+/* ------------------------------------------------------- */
+/* User Homepage */
+/* ------------------------------------------------------- */
 .wod {
-  float: left;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .archive_wod {
@@ -487,4 +526,17 @@ footer p {
 
 .sign_out {
   overflow: hidden;
+}
+
+/* ------------------------------------------------------- */
+/* Personal records */
+/* ------------------------------------------------------- */
+
+.row {
+  width: 60%;
+  text-align: center;
+}
+
+div.col {
+  margin-bottom: 10px;
 }

@@ -34,15 +34,28 @@
   <body>
 
     <% if session[:message] %>
-      <p class="message"><%= session.delete(:message) %></p>
+      <p class="flash"><%= session.delete(:message) %></p>
     <% end %>
+
+    <% if session[:error] %>
+      <div class="flash error">
+        <p><%= session.delete(:error) %></p>
+      </div>
+    <% end %>
+
+    <% if session[:success] %>
+      <div class="flash success">
+        <p><%= session.delete(:success) %></p>
+      </div>
+    <% end %>
+
   <div class="wrapper">
     <div class="personal_data">
       <h3>Personal data</h3>
       <p>Name:</p>
       <p>Weight:</p>
       <p>Height:</p>
-      <p><a href="#">Personal records</a></p>
+      <p><a href="/users/personal_records">Personal records</a></p>
     </div>
 
     <%= yield %>

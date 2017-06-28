@@ -1,15 +1,10 @@
+---
 2017:
-    6:
-      27: |
-          Complete as many rounds as possible in 20 minutes of:
-          10 L pull-ups
-          10 handstand push-ups
-          20 hip extensions
-
-
-      28: |
-          Complete as many rounds as possible in 45 minutes of:
-          Run 800 meters
-          315-lb. deadlifts, 10 reps
-          Run 800 meters
-          50 sit-ups
+  6:
+    27: |
+      Complete as many rounds as possible in 20 minutes of:
+      10 L pull-ups
+      10 handstand push-ups
+      20 hip extensions
+    28: "|\r\nComplete as many rounds as possible in 20 minutes of:\r\n10 L pull-ups\r\n10
+      handstand push-ups\r\n20 hip extensions\r\ndupa"
