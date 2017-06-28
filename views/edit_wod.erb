@@ -1,5 +1,5 @@
 <p>Edit WOD of the day </p>
 <form action="/wods/edit/<%= params[:id] %>" method="post">
- <textarea name="content" id="content" rows="20" cols="100"><%= "|\n" + "#{@content}"%></textarea>
+ <textarea name="content" id="content" rows="20" cols="100"><%= @content%></textarea>
   <button type="submit">Save changes</button>
 </form>
