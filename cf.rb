@@ -147,10 +147,6 @@ end
 
  get "/wods/:id" do
    @date = parse_wod_params(params[:id])
-  #  date = params[:id].split("-")
-  #  @year = date[0].to_i
-  #  @month= date[1].to_i
-  #  @day = date[2].to_i
   erb :wods, layout: :layout2
  end
 
