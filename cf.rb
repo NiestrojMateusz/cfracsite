@@ -16,8 +16,7 @@ end
 helpers do
   def validate_wod(wod)
     if wod == nil
-      session[:message] = "We didn't have WOD that day"
-      today_wod
+      session[:message] = "We didn't have WOD that day yet"
     else
       wod
     end
@@ -76,6 +75,13 @@ def admin?
   end
 end
 
+def parse_wod_params(date)
+  @date = date.split("-")
+  year = @date[0].to_i
+  month= @date[1].to_i
+  day = @date[2].to_i
+  [year, month, day]
+end
 
 get "/" do
 
@@ -137,14 +143,6 @@ post "/users/signup" do
   end
  end
 
-def parse_wod_params(date)
-  @date = date.split("-")
-  year = @date[0].to_i
-  month= @date[1].to_i
-  day = @date[2].to_i
-  [year, month, day]
-end
-
  get "/wods/:id" do
    @date = parse_wod_params(params[:id])
   erb :wods, layout: :layout2
@@ -198,4 +196,9 @@ post "/wods/edit/:id" do
   File.write(file_path("workouts.yml"), output)
 
   redirect "/wods/#{@wod_id}"
+end
+
+post "/wods/add" do
+  @wod_id = params[:wod]
+  redirect "/wods/edit/#{@wod_id}"
 end
