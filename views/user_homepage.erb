@@ -10,11 +10,6 @@
       <label for="wod">Find past WOD
         <input type="date" name="wod" value="">
         <button type="submit">Find WOD</button>
-        <% if admin? %>
-           <form  action="/wods/add %>" method="post">
-             <button type="submit" name="button">Add WOD</button>
-           </form>
-        <% end %>
       </label>
     </form>
   </div>

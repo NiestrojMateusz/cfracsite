@@ -7,6 +7,7 @@ require "pry-remote"
 require "yaml"
 require "bcrypt"
 require 'date'
+require_relative 'styled_yaml'
 
 configure do
   enable :sessions # tells sinatra to enable a sessions support
@@ -26,6 +27,11 @@ helpers do
     path = file_path("workouts.yml")
     data = YAML.load_file(path)
     date = Time.new(year, month, day)
+    if data[date.year] == nil
+      data[date.year] = date.month
+    elsif data[date.year][date.month] == nil
+      data[date.year][date.month] = date.day
+    end
     output = data[date.year][date.month][date.day]
 
     validate_wod(output)
@@ -191,8 +197,8 @@ post "/wods/edit/:id" do
   @wod_id = params[:id]
   @wod_params = parse_wod_params(@wod_id)
   data = load_file("workouts.yml")
-  data[@wod_params[0]][@wod_params[1]][@wod_params[2]] = params[:content]
-  output = YAML.dump(data)
+  data[@wod_params[0]][@wod_params[1]][@wod_params[2]] = StyledYAML.literal(params[:content])
+  output = StyledYAML.dump(data)
   File.write(file_path("workouts.yml"), output)
 
   redirect "/wods/#{@wod_id}"
